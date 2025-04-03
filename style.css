@@ -70,7 +70,7 @@ body {
 }
 
 .section {
-    padding: 80px 0;
+    padding: 40px 0;
 }
 
 h1,
@@ -149,67 +149,58 @@ img {
 /* --- Button Styles --- */
 .btn {
     display: inline-block;
-    padding: 12px 35px;
+    padding: 10px 25px;
     background-color: var(--heading-color);
-    /* Default dark button */
+    /* Default: Dark background */
     color: #fff;
-    border: none;
+    /* Default: White text */
+    border: 1px solid var(--heading-color);
+    /* Border for consistency */
     border-radius: 50px;
     font-weight: 500;
-    font-size: 1rem;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
     cursor: pointer;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    /* margin-top: 1rem; /* REMOVED Default margin, apply contextually */
+    margin: 0 5px;
+    /* Slight margin between buttons */
 }
 
 .btn:hover {
-    background-color: #333;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-}
-
-/* Keep btn-dark explicitly if needed, otherwise .btn is already dark */
-.btn.btn-dark {
-    background-color: var(--heading-color);
+    background-color: #555;
+    /* Darken slightly on hover */
+    border-color: #555;
+    transform: translateY(-2px);
     color: #fff;
+    /* Ensure text stays white */
 }
 
-.btn.btn-dark:hover {
-    background-color: #333;
+/* --- Inverted/Outline Button Style (Applies to Hero Button via class) --- */
+.btn-outline {
+    background-color: var(--bg-color);
+    /* White background */
+    color: var(--heading-color);
+    /* Black text */
+    border: 1px solid var(--heading-color);
+    /* Black border */
 }
-
-/* .btn-outline {
-    background-color: transparent;
-    color: var(--heading-color); /* Default outline uses dark text/border */
-/* border: 1.5px solid var(--heading-color);
-    box-shadow: none; */
 
 .btn-outline:hover {
     background-color: var(--heading-color);
-    color: #fff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Specific outline style for Hero */
-.hero-buttons .btn-outline {
+    /* Black background on hover */
     color: var(--bg-color);
-    /* White text */
-    border: 1.5px solid var(--bg-color);
-    /* White border */
+    /* White text on hover */
+    border-color: var(--heading-color);
+    /* Keep border color same as background */
+    /* Note: Transform is inherited from .btn:hover */
 }
 
-.hero-buttons .btn-outline:hover {
-    background-color: var(--bg-color);
-    /* White background on hover */
-    color: var(--heading-color);
-    /* Dark text on hover */
-    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
-    /* Subtle white glow */
-    border: 1px solid var(--heading-color);
-    /* White border on hover */
-}
+/* --- REMOVED CONFLICTING HERO-SPECIFIC OUTLINE STYLE --- */
+/*
+    .hero-buttons .btn-outline { ... }
+    .hero-buttons .btn-outline:hover { ... }
+*/
+/* The general .btn-outline rule above now applies correctly */
+
 
 /* --- Glassmorphism --- */
 .glassmorphism {
@@ -326,13 +317,12 @@ header {
 /* --- Hero Section --- */
 #hero {
     padding-top: calc(var(--top-element-spacing) + 35px + 90px);
-    /* Adjust top padding: top space + nav height + desired gap */
-    padding-bottom: 100px;
+    /* Adjust for nav height and top space */
+    padding-bottom: 20px;
     text-align: center;
     position: relative;
     overflow: hidden;
     min-height: 90vh;
-    /* Adjust height */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -342,11 +332,20 @@ header {
 .hero-content {
     position: relative;
     z-index: 2;
-    /* Above background text */
+    display: flex;
+    /* Use flexbox for easier alignment control */
+    flex-direction: column;
+    align-items: center;
+    /* Center items horizontally */
+}
+
+.hero-content h1 {
+    margin-bottom: 0.2rem;
+    /* Reduce space below H1 */
 }
 
 .profile-pic {
-    width: 180px;
+    width: 160px;
     /* Adjust size as needed */
     aspect-ratio: 5 / 6;
     /* APPROXIMATE based on image - adjust if needed */
@@ -354,7 +353,7 @@ header {
     margin: 1rem auto 2rem auto;
     border: 6px solid var(--bg-color);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    border-radius: 20px;
+    border-radius: 30px;
     /* Adjust this value for desired roundness */
 }
 
@@ -1115,7 +1114,6 @@ footer a:hover {
 
     .profile-pic {
         width: 140px;
-        /* height: auto; */
         border-radius: 25px;
     }
 
@@ -1250,7 +1248,6 @@ footer a:hover {
 
     .profile-pic {
         width: 120px;
-        /* height: auto; */
         border-radius: 20px;
     }
 
@@ -1341,7 +1338,6 @@ footer a:hover {
 
     .profile-pic {
         width: 100px;
-        /* height: auto; */
         border-radius: 15px;
     }
 
