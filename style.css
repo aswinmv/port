@@ -270,7 +270,7 @@ img {
 header {
     position: sticky;
     /* Adjust top based on height of top elements + desired space */
-    top: calc(var(--top-element-spacing) + 35px);
+    top: calc(var(--top-element-spacing) + 20px);
     /* Example: badge height + space */
     z-index: 1000;
     /* Below top elements but above content */
@@ -345,7 +345,7 @@ header {
 }
 
 .profile-pic {
-    width: 160px;
+    width: 250px;
     /* Adjust size as needed */
     aspect-ratio: 5 / 6;
     /* APPROXIMATE based on image - adjust if needed */
@@ -394,7 +394,7 @@ header {
 /* Hero Background Marquee */
 .hero-bg-text-container {
     position: absolute;
-    top: 50%;
+    top: 57%;
     left: 0;
     width: 100%;
     transform: translateY(-50%);
