@@ -89,20 +89,58 @@
             </div>
         </section>
 
-        <!-- Works Section (content unchanged) -->
-        <section id="works" class="section">
+        <section id="portfolio" class="section">
             <div class="container">
-                <h2>UI/UX Case Study & Works</h2>
-                <div class="works-grid">
-                    <div class="work-item">
-                        <a href="#">
-                            <img src="imgs/cowor.png" alt="Coworking Space Booking App Case Study">
-                        </a>
+                <h2>Portfolio</h2> <!-- Changed Heading -->
+
+                <!-- Tab Controls -->
+                <div class="portfolio-controls">
+                    <button class="portfolio-tab" data-target="works-content">Works</button>
+                    <button class="portfolio-tab active" data-target="casestudy-content">UX Case Studies</button>
+                </div>
+
+                <!-- Content Area -->
+                <div class="portfolio-content-area">
+
+
+                    <!-- Case Study Content (Initially Hidden) -->
+                    <div id="casestudy-content" class="portfolio-content active">
+                        <div class="works-grid"> <!-- Re-using works-grid for layout -->
+                            <!-- Case Study 1 (Moved from original works) -->
+                            <div class="work-item">
+                                <a href="#"> <img src="imgs/cowor.png" alt="Coworking Space Booking App Case Study">
+                                </a>
+                            </div>
+                            <!-- Case Study 2 (Moved from original works) -->
+                            <div class="work-item">
+                                <a href="#"> <img src="imgs/driving.png" alt="Driving Lessons Booking App Case Study">
+                                </a>
+                            </div>
+                            <!-- ADDED: Case Study 3 (Placeholder) -->
+                            <div class="work-item">
+                                <a href="#"> <img src="imgs/driving.png" alt="Case Study 3"> </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="work-item">
-                        <a href="#">
-                            <img src="imgs/driving.png" alt="Driving Lessons Booking App Case Study">
-                        </a>
+                    <!-- Works Content (Initially Visible) -->
+                    <div id="works-content" class="portfolio-content">
+                        <div class="works-grid">
+                            <!-- Work Item 1 -->
+                            <div class="work-item">
+                                <a href="#"> <img src="imgs/work_placeholder_1.png" alt="Work Example 1"> </a>
+                                <!-- Add Title/Desc if needed -->
+                            </div>
+                            <!-- Work Item 2 -->
+                            <div class="work-item">
+                                <a href="#"> <img src="imgs/work_placeholder_2.png" alt="Work Example 2"> </a>
+                                <!-- Add Title/Desc if needed -->
+                            </div>
+                            <!-- Work Item 3 (Placeholder) -->
+                            <div class="work-item">
+                                <a href="#"> <img src="imgs/work_placeholder_3.png" alt="Work Example 3"> </a>
+                                <!-- Add Title/Desc if needed -->
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

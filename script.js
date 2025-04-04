@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     faqItems.forEach(item => {
         const summary = item.querySelector('summary');
         summary.addEventListener('click', (e) => {
+            // Optional: Close others when one opens
             if (!item.open) {
                 faqItems.forEach(otherItem => {
                     if (otherItem !== item && otherItem.open) {
@@ -15,13 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Typewriter Effect ---
-    const heading = document.querySelector('#hero h1');
-    if (heading) { // Check if the heading element exists
-        const textToType = heading.textContent; // Store the original text
-        const typingSpeed = 100; // Milliseconds per character (adjust speed here)
+    const heading = document.querySelector('#hero h1.typing-effect'); // Target specifically
+    if (heading) {
+        const textToType = heading.textContent;
+        const typingSpeed = 100;
         let i = 0;
-        heading.textContent = ''; // Clear the heading text initially
-        heading.classList.add('typing-effect'); // Add class to show cursor
+        heading.textContent = '';
+        // Cursor is handled by CSS ::after pseudo-element
 
         function typeWriter() {
             if (i < textToType.length) {
@@ -29,13 +30,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 i++;
                 setTimeout(typeWriter, typingSpeed);
             } else {
-                // Typing finished - optionally remove the class to stop cursor blinking
-                // heading.classList.remove('typing-effect');
-                 // Or keep cursor blinking by commenting out the line above
+                // Keep cursor blinking via CSS
             }
         }
-
-        // Start typing after a short delay (e.g., 500ms)
         setTimeout(typeWriter, 500);
     }
+
+    // --- ADDED: Portfolio Tab Switching Logic ---
+    const portfolioTabs = document.querySelectorAll('.portfolio-tab');
+    const portfolioContents = document.querySelectorAll('.portfolio-content');
+
+    portfolioTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const targetId = tab.getAttribute('data-target');
+            const targetContent = document.getElementById(targetId);
+
+            // Remove active state from all tabs and contents
+            portfolioTabs.forEach(t => t.classList.remove('active'));
+            portfolioContents.forEach(c => c.classList.remove('active')); // This triggers fade out via CSS
+
+            // Add active state to the clicked tab
+            tab.classList.add('active');
+
+            // Add active state to the target content (triggers fade in via CSS)
+            if (targetContent) {
+                // We need display block/grid before opacity transition works correctly on enter
+                // but CSS handles this transition from display:none via visibility/opacity
+                 targetContent.classList.add('active');
+            }
+        });
+    });
+    // --- End Portfolio Tab Logic ---
+
 });
